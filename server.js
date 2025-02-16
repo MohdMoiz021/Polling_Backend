@@ -33,7 +33,6 @@ io.on('connection', (socket) => {
   console.log('User connected');
 
   socket.on('vote', (pollId) => {
-   
     Poll.findById(pollId, (err, poll) => {
       if (poll) {
         io.emit('pollUpdated', poll);
